@@ -1,0 +1,59 @@
+.appLayout {
+  min-height: 100vh;
+
+  .sidebar {
+    background: linear-gradient(
+      180deg,
+      #1a1c2e 0%,
+      #16213e 50%,
+      #0f3460 100%
+    ) !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+
+    :global(.ant-menu-dark) {
+      background: transparent !important;
+    }
+
+    :global(.ant-menu-item-selected) {
+      background: linear-gradient(
+        90deg,
+        rgba(99, 102, 241, 0.3),
+        rgba(99, 102, 241, 0.1)
+      ) !important;
+      border-right: 3px solid #6366f1;
+    }
+  }
+
+  .logo {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .header {
+    background: linear-gradient(90deg, #1a1c2e, #16213e) !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .content {
+    padding: 24px;
+    background: #f0f2f5;
+    min-height: calc(100vh - 64px);
+  }
+}

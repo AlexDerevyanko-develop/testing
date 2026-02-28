@@ -1,0 +1,56 @@
+.profile {
+  animation: fadeIn 0.4s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.profileCard {
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+  text-align: center;
+  position: relative;
+}
+
+.coverBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.avatarSection {
+  position: relative;
+  padding-top: 60px;
+  z-index: 1;
+}
+
+.avatar {
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.infoCard {
+  border-radius: 16px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06) !important;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  :global(.ant-card-head) {
+    border-bottom: 1px solid #f5f5f5;
+  }
+}
