@@ -41,3 +41,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "dist/*"
           target: ${{ secrets.SERVER_PATH }}
+          strip_components: 1
