@@ -82,7 +82,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         className={styles.sidebar}
         width={240}
       >
-        <div className={styles.logo}>{collapsed ? "⚡" : "⚡ Auto"}</div>
+        <div className={styles.logo}>{collapsed ? "⚡" : "⚡ Amira"}</div>
         <Menu
           theme="dark"
           mode="inline"
