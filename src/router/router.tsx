@@ -7,6 +7,7 @@ import {
 import DashboardPage from "../pages/DashboardPage";
 import ProfilePage from "../pages/ProfilePage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ProductsPage from "../pages/ProductsPage";
 import Layout from "../components/Layout";
 
 const rootRoute = createRootRoute({
@@ -30,6 +31,12 @@ const profileRoute = createRoute({
   component: ProfilePage,
 });
 
+const productsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/products",
+  component: ProductsPage,
+});
+
 const notFoundRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/404",
@@ -39,6 +46,7 @@ const notFoundRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   dashboardRoute,
   profileRoute,
+  productsRoute,
   notFoundRoute,
 ]);
 
