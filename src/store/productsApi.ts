@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export interface Product {
@@ -15,33 +16,33 @@ export const productsApi = createApi({
     getBooks: builder.query<any[], { limit?: number; search?: string } | void>({
       query: params => ({
         url: "/books",
-        params,
+        params: params || undefined,
       }),
     }),
     getMovies: builder.query<any[], { limit?: number; search?: string } | void>(
       {
         query: params => ({
           url: "/movies",
-          params,
+          params: params || undefined,
         }),
       },
     ),
     getGames: builder.query<any[], { limit?: number } | void>({
       query: params => ({
         url: "/games",
-        params,
+        params: params || undefined,
       }),
     }),
     getPosts: builder.query<any[], { limit?: number } | void>({
       query: params => ({
         url: "/posts",
-        params,
+        params: params || undefined,
       }),
     }),
     getTasks: builder.query<any[], { limit?: number } | void>({
       query: params => ({
         url: "/tasks",
-        params,
+        params: params || undefined,
       }),
     }),
   }),
