@@ -24,6 +24,14 @@ import {
   Legend,
 } from "recharts";
 import styles from "./DashboardPage.module.scss";
+import {
+  useGetBooksQuery,
+  useGetMoviesQuery,
+  useGetGamesQuery,
+  useGetPostsQuery,
+  useGetTasksQuery,
+  useGetProductsQuery,
+} from "../store/productsApi";
 
 const areaData = [
   { month: "Jan", revenue: 4200, users: 240 },
@@ -147,6 +155,72 @@ const goals = [
 ];
 
 const DashboardPage: React.FC = () => {
+  // Вызываем все API параллельно для тестирования nginx через RTK Query
+
+  // Books API - разные варианты
+  useGetBooksQuery(); // дефолт
+  useGetBooksQuery({ limit: 2 }); // с limit
+  useGetBooksQuery({ search: "1984" }); // с search
+  useGetBooksQuery({ search: "orwell", limit: 1 }); // с обоими параметрами
+
+  // Movies API - разные варианты
+  useGetMoviesQuery(); // дефолт
+  useGetMoviesQuery({ limit: 2 }); // с limit
+  useGetMoviesQuery({ search: "nolan" }); // с search
+  useGetMoviesQuery({ search: "inception", limit: 1 }); // с обоими параметрами
+
+  // Games API - разные варианты
+  useGetGamesQuery(); // дефолт
+  useGetGamesQuery({ limit: 2 }); // с limit
+
+  // Posts API - разные варианты
+  useGetPostsQuery(); // дефолт
+  useGetPostsQuery({ limit: 2 }); // с limit
+
+  // Tasks API - разные варианты
+  useGetTasksQuery(); // дефолт
+  useGetTasksQuery({ limit: 2 }); // с limit
+
+  // Products API - проксированный запрос
+  useGetProductsQuery();
+  useGetMoviesQuery(); // дефолт
+  useGetMoviesQuery({ limit: 2 }); // с limit
+  useGetMoviesQuery({ search: "nolan" }); // с search
+  useGetMoviesQuery({ search: "inception", limit: 1 }); // с обоими параметрами
+
+  // Games API - разные варианты
+  useGetGamesQuery(); // дефолт
+  useGetGamesQuery({ limit: 2 }); // с limit
+
+  // Posts API - разные варианты
+  useGetPostsQuery(); // дефолт
+  useGetPostsQuery({ limit: 2 }); // с limit
+
+  // Tasks API - разные варианты
+  useGetTasksQuery(); // дефолт
+  useGetTasksQuery({ limit: 2 }); // с limit
+  useGetTasksQuery({ limit: 3 }); // с limit
+  useGetTasksQuery({ limit: 4 }); // с limit
+  useGetTasksQuery({ limit: 5 }); // с limit
+  useGetTasksQuery({ limit: 6 }); // с limit
+  useGetTasksQuery({ limit: 7 }); // с limit
+  useGetTasksQuery({ limit: 8 }); // с limit
+  useGetTasksQuery({ limit: 9 }); // с limit
+  useGetTasksQuery({ limit: 10 }); // с limit
+  useGetTasksQuery({ limit: 11 }); // с limit
+  useGetTasksQuery({ limit: 12 }); // с limit
+  useGetTasksQuery({ limit: 13 }); // с limit
+  useGetTasksQuery({ limit: 14 }); // с limit
+  useGetTasksQuery({ limit: 15 }); // с limit
+  useGetTasksQuery({ limit: 16 }); // с limit
+  useGetTasksQuery({ limit: 17 }); // с limit
+  useGetTasksQuery({ limit: 18 }); // с limit
+  useGetTasksQuery({ limit: 19 }); // с limit
+  useGetTasksQuery({ limit: 20 }); // с limit
+
+  // Products API - проксированный запрос
+  useGetProductsQuery();
+
   return (
     <div className={styles.dashboard}>
       <div className="mb-6">
