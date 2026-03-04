@@ -30,7 +30,7 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://ulearn.fit/api",
-    prepareHeaders: headers => {
+    prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
@@ -43,14 +43,14 @@ export const api = createApi({
       query: () => "/user",
     }),
     login: builder.mutation<AuthResponse, LoginRequest>({
-      query: credentials => ({
+      query: (credentials) => ({
         url: "/auth/login",
         method: "POST",
         body: credentials,
       }),
     }),
     register: builder.mutation<AuthResponse, RegisterRequest>({
-      query: data => ({
+      query: (data) => ({
         url: "/auth/register",
         method: "POST",
         body: data,

@@ -4,51 +4,26 @@ import {
   createRouter,
   Outlet,
 } from "@tanstack/react-router";
-import DashboardPage from "../pages/DashboardPage";
-import ProfilePage from "../pages/ProfilePage";
-import NotFoundPage from "../pages/NotFoundPage";
-import ProductsPage from "../pages/ProductsPage";
-import Layout from "../components/Layout";
+import HomePage from "../pages/HomePage";
+import AuthPage from "../pages/AuthPage";
 
 const rootRoute = createRootRoute({
-  component: () => (
-    <Layout>
-      <Outlet />
-    </Layout>
-  ),
-  notFoundComponent: NotFoundPage,
+  component: () => <Outlet />,
 });
 
-const dashboardRoute = createRoute({
+const homeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: DashboardPage,
+  component: HomePage,
 });
 
-const profileRoute = createRoute({
+const authRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/profile",
-  component: ProfilePage,
+  path: "/auth",
+  component: AuthPage,
 });
 
-const productsRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/products",
-  component: ProductsPage,
-});
-
-const notFoundRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/404",
-  component: NotFoundPage,
-});
-
-const routeTree = rootRoute.addChildren([
-  dashboardRoute,
-  profileRoute,
-  productsRoute,
-  notFoundRoute,
-]);
+const routeTree = rootRoute.addChildren([homeRoute, authRoute]);
 
 export const router = createRouter({ routeTree });
 
